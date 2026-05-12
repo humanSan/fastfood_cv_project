@@ -1,0 +1,546 @@
+{
+  "pipeline": "hybrid_ensemble",
+  "config": {
+    "no_masks": false,
+    "sp_prompt": false,
+    "n_superpixels": 200,
+    "sf_bias": 0.15
+  },
+  "global_metrics": {
+    "mIoU": 0.31239952685686545,
+    "mAcc": 0.4926695023840339,
+    "mDice": 0.3994977380035672,
+    "pixel_accuracy": 0.7537066806830816,
+    "avg_latency": 9.547762210845947,
+    "fps": 0.1047365841248154
+  },
+  "profiling": {
+    "stage1_mask": 9.26306502532959,
+    "stage2_sf": 0.027438526153564454,
+    "stage3_yolo": 0.1923944549560547,
+    "stage4_fuse": 0.06486420440673828,
+    "total": 9.547762210845947
+  },
+  "per_class_metrics": {
+    "background": {
+      "IoU": 0.8698351040743915,
+      "Dice": 0.930386965330805,
+      "Accuracy": 0.9671444021194883
+    },
+    "candy": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "egg tart": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": null
+    },
+    "french fries": {
+      "IoU": 0.42973961357964624,
+      "Dice": 0.6011438859187863,
+      "Accuracy": 0.48961403107207235
+    },
+    "chocolate": {
+      "IoU": 0.143595092633984,
+      "Dice": 0.25112925642807504,
+      "Accuracy": 0.14395259672359706
+    },
+    "biscuit": {
+      "IoU": 0.8081036672647729,
+      "Dice": 0.8938687331874503,
+      "Accuracy": 0.937394395430282
+    },
+    "popcorn": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": null
+    },
+    "pudding": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "ice cream": {
+      "IoU": 0.17974720046138318,
+      "Dice": 0.3047215545687864,
+      "Accuracy": 0.19395051509379393
+    },
+    "cheese butter": {
+      "IoU": 0.00020967353384666174,
+      "Dice": 0.0004192591601436186,
+      "Accuracy": 0.00021873385674328556
+    },
+    "cake": {
+      "IoU": 0.38877315067297835,
+      "Dice": 0.5598799926173469,
+      "Accuracy": 0.4887542036755808
+    },
+    "wine": {
+      "IoU": 0.945531532687496,
+      "Dice": 0.9720032976092333,
+      "Accuracy": 0.9779045849645014
+    },
+    "milkshake": {
+      "IoU": 0.7374744254650997,
+      "Dice": 0.8489039201456876,
+      "Accuracy": 0.8833133869037443
+    },
+    "coffee": {
+      "IoU": 0.4519089932623767,
+      "Dice": 0.6225031945658753,
+      "Accuracy": 0.46263807667316437
+    },
+    "juice": {
+      "IoU": 0.6020277696776654,
+      "Dice": 0.7515821898627836,
+      "Accuracy": 0.8553172503903885
+    },
+    "milk": {
+      "IoU": 0.7356013630523435,
+      "Dice": 0.847661656313367,
+      "Accuracy": 0.9996204357397708
+    },
+    "tea": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "almond": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "red beans": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": null
+    },
+    "cashew": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": null
+    },
+    "dried cranberries": {
+      "IoU": 0.2895758552486997,
+      "Dice": 0.44910247670983866,
+      "Accuracy": 0.41117120865404616
+    },
+    "soy": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": null
+    },
+    "walnut": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "peanut": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "egg": {
+      "IoU": 0.4256584985073682,
+      "Dice": 0.5971394958231904,
+      "Accuracy": 0.4369937188650639
+    },
+    "apple": {
+      "IoU": 0.7023552607039139,
+      "Dice": 0.825157094898622,
+      "Accuracy": 0.730114108458428
+    },
+    "date": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": null
+    },
+    "apricot": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "avocado": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": 0.0
+    },
+    "banana": {
+      "IoU": 0.05843223092445022,
+      "Dice": 0.11041279586396316,
+      "Accuracy": 0.080980199310353
+    },
+    "strawberry": {
+      "IoU": 0.798719769003877,
+      "Dice": 0.8880980603734672,
+      "Accuracy": 0.920002202582528
+    },
+    "cherry": {
+      "IoU": 0.12307507699692012,
+      "Dice": 0.2191751549255645,
+      "Accuracy": 0.26471094287680663
+    },
+    "blueberry": {
+      "IoU": 0.6030454270909495,
+      "Dice": 0.7523747198921212,
+      "Accuracy": 0.7138287864534337
+    },
+    "raspberry": {
+      "IoU": 0.7002669089670055,
+      "Dice": 0.8237140948563795,
+      "Accuracy": 0.8934212432980727
+    },
+    "mango": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": 0.0
+    },
+    "olives": {
+      "IoU": 0.17478220999541494,
+      "Dice": 0.29755678713605493,
+      "Accuracy": 0.174910525832798
+    },
+    "peach": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "lemon": {
+      "IoU": 0.734304096161991,
+      "Dice": 0.8467997022978881,
+      "Accuracy": 0.7748055864631025
+    },
+    "pear": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "fig": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "pineapple": {
+      "IoU": 0.20094831673779043,
+      "Dice": 0.3346493998736576,
+      "Accuracy": 0.9719291808091001
+    },
+    "grape": {
+      "IoU": 0.2552660783173915,
+      "Dice": 0.40671230223883736,
+      "Accuracy": 0.35187505463445906
+    },
+    "kiwi": {
+      "IoU": 0.9347998414585811,
+      "Dice": 0.9663013418006761,
+      "Accuracy": 0.9451958721570984
+    },
+    "melon": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "orange": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": 0.0
+    },
+    "watermelon": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "steak": {
+      "IoU": 0.21433222141771976,
+      "Dice": 0.3530042563928497,
+      "Accuracy": 0.30570681863114046
+    },
+    "pork": {
+      "IoU": 0.24883925202613985,
+      "Dice": 0.3985128616391877,
+      "Accuracy": 0.3105110751531478
+    },
+    "chicken duck": {
+      "IoU": 0.3306452363717615,
+      "Dice": 0.496969781777935,
+      "Accuracy": 0.54815181384437
+    },
+    "sausage": {
+      "IoU": 0.04447258594768592,
+      "Dice": 0.08515797646777758,
+      "Accuracy": 0.09007062628712934
+    },
+    "fried meat": {
+      "IoU": 1.0495877744016037e-05,
+      "Dice": 2.099153516344534e-05,
+      "Accuracy": 1.0843634786380394e-05
+    },
+    "lamb": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": null
+    },
+    "sauce": {
+      "IoU": 0.255192720026416,
+      "Dice": 0.40661918437679495,
+      "Accuracy": 0.5032401338705595
+    },
+    "crab": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "fish": {
+      "IoU": 0.3891974523493221,
+      "Dice": 0.560319847536628,
+      "Accuracy": 0.5457827544633272
+    },
+    "shellfish": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "shrimp": {
+      "IoU": 0.36193860065252537,
+      "Dice": 0.5315050186243567,
+      "Accuracy": 0.3844103942130221
+    },
+    "soup": {
+      "IoU": 0.7065571233333071,
+      "Dice": 0.8280497777340555,
+      "Accuracy": 0.9969316978925317
+    },
+    "bread": {
+      "IoU": 0.5073167920436208,
+      "Dice": 0.6731389111054756,
+      "Accuracy": 0.6069478195897106
+    },
+    "corn": {
+      "IoU": 0.7278135218870194,
+      "Dice": 0.8424676768267712,
+      "Accuracy": 0.742455724265938
+    },
+    "hamburg": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "pizza": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": 0.0
+    },
+    "hanamaki baozi": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": null
+    },
+    "wonton dumplings": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "pasta": {
+      "IoU": 0.7860880768201942,
+      "Dice": 0.8802343927178344,
+      "Accuracy": 0.806724214432657
+    },
+    "noodles": {
+      "IoU": 0.08990024870388054,
+      "Dice": 0.1649696819700532,
+      "Accuracy": 0.27096375550821966
+    },
+    "rice": {
+      "IoU": 0.3703853647068516,
+      "Dice": 0.5405565094984552,
+      "Accuracy": 0.7414822250723027
+    },
+    "pie": {
+      "IoU": 0.5398128916216253,
+      "Dice": 0.7011408912846955,
+      "Accuracy": 0.746747839916699
+    },
+    "tofu": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": null
+    },
+    "eggplant": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "potato": {
+      "IoU": 0.5358986523134128,
+      "Dice": 0.6978307474991629,
+      "Accuracy": 0.5930656277701998
+    },
+    "garlic": {
+      "IoU": 0.11154453093139949,
+      "Dice": 0.20070186632636783,
+      "Accuracy": 0.11172281518052177
+    },
+    "cauliflower": {
+      "IoU": 0.061808990398603436,
+      "Dice": 0.11642205134352897,
+      "Accuracy": 0.6931642058895505
+    },
+    "tomato": {
+      "IoU": 0.620728578584677,
+      "Dice": 0.7659870835704478,
+      "Accuracy": 0.7047140919378576
+    },
+    "kelp": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "seaweed": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": 0.0
+    },
+    "spring onion": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": 0.0
+    },
+    "rape": {
+      "IoU": 0.23107533628375002,
+      "Dice": 0.3754040544444626,
+      "Accuracy": 0.23257596736392067
+    },
+    "ginger": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "okra": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": null
+    },
+    "lettuce": {
+      "IoU": 0.24186636797106215,
+      "Dice": 0.38952076360070664,
+      "Accuracy": 0.25518247067242017
+    },
+    "pumpkin": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": null
+    },
+    "cucumber": {
+      "IoU": 0.5284997019438179,
+      "Dice": 0.6915273863275423,
+      "Accuracy": 0.7114946285042959
+    },
+    "white radish": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "carrot": {
+      "IoU": 0.6746127736597427,
+      "Dice": 0.8056940497180446,
+      "Accuracy": 0.6990234043217045
+    },
+    "asparagus": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": 0.0
+    },
+    "bamboo shoots": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": null
+    },
+    "broccoli": {
+      "IoU": 0.5490531522236495,
+      "Dice": 0.7088887188092797,
+      "Accuracy": 0.56018106151713
+    },
+    "celery stem": {
+      "IoU": 0.488891214118796,
+      "Dice": 0.6567185157421289,
+      "Accuracy": 0.5552072428914981
+    },
+    "mushroom": {
+      "IoU": 0.23433197802981667,
+      "Dice": 0.37969036239966253,
+      "Accuracy": 0.6003143102534583
+    },
+    "green beans": {
+      "IoU": 0.19922682729479457,
+      "Dice": 0.33225879001424397,
+      "Accuracy": 0.6642685851318945
+    },
+    "bean sprouts": {
+      "IoU": 0.9245918452199462,
+      "Dice": 0.9608186250153025,
+      "Accuracy": 0.9479375364110434
+    },
+    "spinach": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "green pepper": {
+      "IoU": 0.30958753891142343,
+      "Dice": 0.47280159548366474,
+      "Accuracy": 0.3497515618963887
+    },
+    "red pepper": {
+      "IoU": 0.6264533162653012,
+      "Dice": 0.7703305222479763,
+      "Accuracy": 0.7190489134427482
+    },
+    "pepper": {
+      "IoU": 0.43648322405420975,
+      "Dice": 0.6077108548783691,
+      "Accuracy": 0.5114643692386823
+    },
+    "onion": {
+      "IoU": 0.6087209276720558,
+      "Dice": 0.7567762900342476,
+      "Accuracy": 0.6703916575724506
+    },
+    "sweet potato": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "beet": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": 0.0
+    },
+    "zucchini": {
+      "IoU": null,
+      "Dice": null,
+      "Accuracy": null
+    },
+    "cabbage": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": null
+    },
+    "mixed vegetables": {
+      "IoU": 0.03683102435474229,
+      "Dice": 0.07104537478064678,
+      "Accuracy": 0.7361038961038961
+    },
+    "salad": {
+      "IoU": 0.0,
+      "Dice": 0.0,
+      "Accuracy": null
+    },
+    "other ingredients": {
+      "IoU": 0.01787595490875141,
+      "Dice": 0.03512403416652852,
+      "Accuracy": 0.02334533381664799
+    }
+  }
+}

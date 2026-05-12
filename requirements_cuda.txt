@@ -1,0 +1,21 @@
+# ── CUDA PyTorch ──────────────────────────────────────────────
+# Install these FIRST with:
+#   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128 --no-cache-dir
+#
+# Then install the rest with:
+#   pip install -r requirements_cuda.txt
+# ──────────────────────────────────────────────────────────────
+
+transformers
+datasets
+huggingface_hub
+numpy
+opencv-python
+Pillow
+matplotlib
+tqdm
+evaluate
+scikit-learn
+scikit-image
+ultralytics
+

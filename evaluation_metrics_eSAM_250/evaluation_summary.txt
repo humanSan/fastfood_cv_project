@@ -1,0 +1,103 @@
+Semantic-EfficientSAM3 — Evaluation Report
+=======================================================
+
+Dataset Split:    FoodSeg103 (validation)
+Images Evaluated: 250
+mIoU:             31.69%
+Mean Class Acc:   47.24%
+Mean Dice:        41.87%
+Pixel Accuracy:   76.90%
+Avg Latency:      7.592s
+Avg FPS:          0.1
+
+Per-Class Metrics:
+Class                       IoU (%)  Dice (%)   Acc (%)
+-------------------------------------------------------
+background                    88.12     93.68     96.63
+candy                          0.00      0.00       nan
+french fries                  56.26     72.01     65.05
+chocolate                     13.85     24.33     17.58
+biscuit                       68.03     80.98     74.03
+popcorn                        0.00      0.00       nan
+ice cream                     33.99     50.74     41.39
+cheese butter                  1.87      3.68      3.68
+cake                          14.61     25.50     25.05
+wine                          17.94     30.42     24.42
+milkshake                     15.99     27.57     17.03
+coffee                        10.94     19.72     11.67
+juice                          9.94     18.08     74.69
+milk                          36.85     53.85     81.30
+almond                         0.00      0.00       nan
+red beans                      0.00      0.00      0.00
+dried cranberries             63.17     77.43     68.80
+soy                           57.48     73.00     61.71
+walnut                         0.00      0.00       nan
+egg                           31.61     48.03     34.74
+apple                         66.69     80.02     70.64
+date                           0.00      0.00       nan
+avocado                        0.00      0.00      0.00
+banana                        52.28     68.66     66.52
+strawberry                    68.50     81.30     75.51
+cherry                         2.83      5.50      4.97
+blueberry                     56.78     72.43     69.07
+raspberry                     64.66     78.54     90.22
+mango                          0.00      0.00      0.00
+olives                        52.11     68.52     56.68
+lemon                         60.92     75.72     66.07
+pear                           0.00      0.00      0.00
+fig                           61.72     76.33     64.95
+pineapple                     19.55     32.70     75.69
+grape                          7.19     13.41     23.30
+kiwi                          55.34     71.25     56.71
+orange                        70.81     82.91     80.86
+steak                         36.10     53.05     51.30
+pork                          28.29     44.11     37.00
+chicken duck                  30.46     46.69     53.68
+sausage                       11.26     20.24     30.72
+fried meat                     1.31      2.58      1.45
+lamb                           0.84      1.67      1.22
+sauce                         35.04     51.90     58.66
+fish                          25.19     40.24     51.77
+shellfish                     88.73     94.03     90.18
+shrimp                        51.54     68.03     58.31
+soup                          64.16     78.17     84.43
+bread                         50.64     67.23     65.25
+corn                          57.01     72.62     60.91
+hamburg                        0.00      0.00       nan
+pizza                          0.07      0.14      0.71
+hanamaki baozi                13.51     23.80     86.06
+wonton dumplings               6.15     11.58      6.18
+pasta                         76.69     86.81     78.73
+noodles                       21.02     34.74     46.18
+rice                          39.86     57.00     64.51
+pie                           38.35     55.44     53.30
+tofu                           0.00      0.00      0.00
+potato                        38.04     55.11     58.55
+garlic                        20.84     34.50     20.99
+cauliflower                   50.36     66.98     92.44
+tomato                        68.59     81.37     79.80
+seaweed                        0.00      0.00      0.00
+spring onion                   7.58     14.09      8.96
+rape                          48.78     65.57     51.16
+ginger                         0.00      0.00      0.00
+lettuce                       43.46     60.59     50.99
+pumpkin                        0.26      0.52      0.95
+cucumber                      50.64     67.23     72.16
+white radish                   0.00      0.00      0.00
+carrot                        73.46     84.70     80.68
+asparagus                     53.84     70.00     81.42
+broccoli                      84.12     91.38     89.48
+celery stem                   63.76     77.87     69.39
+mushroom                      37.70     54.76     71.10
+green beans                   24.10     38.84     84.82
+bean sprouts                  41.94     59.09     78.57
+green pepper                  30.82     47.12     48.03
+red pepper                    46.64     63.61     58.02
+pepper                        42.55     59.70     53.36
+onion                         56.97     72.59     68.84
+beet                          32.89     49.50     35.04
+zucchini                       0.00      0.00       nan
+cabbage                        0.00      0.00       nan
+mixed vegetables              33.51     50.20     43.82
+salad                          0.00      0.00      0.00
+other ingredients              1.39      2.74      1.46

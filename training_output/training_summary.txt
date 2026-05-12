@@ -1,0 +1,4 @@
+Semantic-EfficientSAM3 — SegFormer-B0 Training Report
+=======================================================
+
+Dataset:          FoodSeg103 (4983 train / 2135 val)

@@ -1,0 +1,16 @@
+torch
+torchvision
+torchaudio
+transformers
+datasets
+huggingface_hub
+numpy
+opencv-python
+Pillow
+matplotlib
+tqdm
+evaluate
+scikit-learn
+scikit-image
+ultralytics
+
