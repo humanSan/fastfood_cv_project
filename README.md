@@ -33,9 +33,19 @@ You will find 2 sets of files called `eval_<pipeline>.py` and `test_<pipeline>.p
 
 - Base SegFormer
 - Superpixels + MobileSAM + SegFormer
-- MobileSam + SegFormer
+- MobileSAM + SegFormer
 - FastSAM + SegFormer
 - EfficientSAM + SegFormer
+
+## Results
+
+| Method                              | mIoU | mAcc | Pixel Accuracy | Latency(s) |
+|-------------------------------------|------|------|----------------|------------|
+| Finetuned Segformer (25 Epochs)     | 36.4 | 53.0 | 79.7           | 0.1        |
+| FastSAM + SegFormer                 | 29.3 | 38.4 | 74.6           | 0.1        |
+| EfficientSAM3 + SegFormer           | 31.7 | 47.2 | 76.9           | 7.6        |
+| MobileSAM + SegFormer               | 31.2 | 49.3 | 75.4           | 9.5        |
+| Superpixels + MobileSAM + SegFormer | 33.8 | 47.2 | 77.0           | 2.2        |
 
 ## How to Set Up
 
