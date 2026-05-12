@@ -1,0 +1,113 @@
+# Semantic-EfficientSAM3 Pipeline — Walkthrough
+
+## Overview
+
+This project implements a food image semantic segmentation pipeline for the **FoodSeg103** dataset by combining:
+
+- **EfficientSAM3** — lightweight distilled SAM3 models (replaces FastSAM for mask generation, and BLIP/CLIP for open-vocabulary labeling)
+- **Semantic-Fast-SAM (SFS)** — the two-stage pipeline architecture (mask generation → semantic labeling with fusion)
+
+```mermaid
+graph LR
+    A["Input Image"] --> B["EfficientSAM3<br/>EfficientViT-B0<br/>Mask Generator"]
+    B --> C{"Class-Agnostic Masks"}
+    C --> D["Branch A: SegFormer-B0<br/>(Closed-Set)"]
+    C --> E["Branch B: MobileCLIP<br/>(Open-Vocab)"]
+    D --> F["SFS Fusion"]
+    E --> F
+    F --> G["Final Semantic Map"]
+```
+
+## Project Structure
+
+```
+project/
+├── configs/                       # Dataset config: 104 class name maps      
+├── models/                        # Mask generation models (SAM)
+├── utils/
+│   ├── __init__.py
+│   └── data_loader.py             # FoodSeg103Dataset + visualisation helpers
+├── pipeline_xx.py                    # Main orchestrator (CLI + Python API)
+├── evaluate_xx.py                    # Full dataset evaluation (mIoU, FPS)
+├── train_segformer.py             # SegFormer-B0 training script
+├── download_dataset.py            # Downloads FoodSeg103 from HuggingFace
+├── setup_repos.py                 # Clones EfficientSAM3 & Semantic-Fast-SAM repos
+└── requirements.txt               # Python dependencies
+```
+
+## How to Set Up
+
+### Step 1 — Create a virtual environment & install dependencies
+
+```powershell
+cd c:\Users\axd210123\Downloads\project
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+### Step 2 — Clone the external repositories
+
+```powershell
+python setup_repos.py
+```
+
+This clones:
+- `efficientsam3/` — the EfficientSAM3 repo (for `sam3` package)
+
+Then install EfficientSAM3 as a package:
+
+```powershell
+pip install -e "efficientsam3"
+```
+
+### Step 3 — Download model weights
+
+Create a `weights/` directory and download the following checkpoints:
+
+| Model | Download Link | Save As |
+|-------|--------------|---------|
+| EfficientSAM3 EfficientViT-S (image encoder) | [HuggingFace](https://huggingface.co/Simon7108528/EfficientSAM3/resolve/main/stage1_all_converted/efficient_sam3_efficientvit_s.pt) | `weights/efficient_sam3_efficientvit_s.pt` |
+| EfficientSAM3 TinyViT-M + MobileCLIP-S1 (text) | [HuggingFace](https://huggingface.co/Simon7108528/EfficientSAM3/resolve/main/stage1_all_converted/efficient_sam3_tinyvit_11m_mobileclip_s1.pth) | `weights/efficient_sam3_tinyvit_m_mobileclip_s1.pt` |
+
+### Step 4 — Download the FoodSeg103 dataset
+
+```powershell
+python download_dataset.py
+```
+
+This downloads from HuggingFace and saves images/annotations to `data/FoodSeg103/`.
+
+### Step 5 — Train the SegFormer closed-set branch
+
+```powershell
+python train_segformer.py
+```
+
+This fine-tunes a SegFormer-B0 on FoodSeg103 for 10 epochs and saves checkpoints to `weights/segformer_foodseg103_epoch_<N>/`. Use the best epoch as your closed-set branch checkpoint.
+
+**Pretrained 25 epoch SegFormer model can be found here:**
+[SegFormer Weights - Place in `weights/`](https://cometmail-my.sharepoint.com/:u:/g/personal/axd210123_utdallas_edu/IQBCN8PMPPHUTYFdLWU35EtKAcrls4fjJe2ULPIXbxfOLxk?e=qNosO9)
+
+Other model weights (MobileSAM/FastSAM) will be automatically downloaded whenever a script that needs the model is first run.
+
+## How to Run
+
+### Single image inference
+
+```powershell
+python pipeline.py --image path/to/food_image.jpg --out_dir output --device cuda
+```
+
+Outputs saved to `output/`:
+
+### Full dataset evaluation
+
+```powershell
+python eval_<type>.py --data_dir data/FoodSeg103 --split test --out_dir output/eval --device cuda
+```
+
+Outputs:
+- Per-class IoU and mIoU printed to console
+- `output/eval/evaluation_results.txt` — saved metrics
+- First 20 overlay images saved for visual inspection
