@@ -7,16 +7,7 @@ This project implements a food image semantic segmentation pipeline for the **Fo
 - **EfficientSAM3** — lightweight distilled SAM3 models (replaces FastSAM for mask generation, and BLIP/CLIP for open-vocabulary labeling)
 - **Semantic-Fast-SAM (SFS)** — the two-stage pipeline architecture (mask generation → semantic labeling with fusion)
 
-```mermaid
-graph LR
-    A["Input Image"] --> B["EfficientSAM3<br/>EfficientViT-B0<br/>Mask Generator"]
-    B --> C{"Class-Agnostic Masks"}
-    C --> D["Branch A: SegFormer-B0<br/>(Closed-Set)"]
-    C --> E["Branch B: MobileCLIP<br/>(Open-Vocab)"]
-    D --> F["SFS Fusion"]
-    E --> F
-    F --> G["Final Semantic Map"]
-```
+![Pipeline Image](flow.png)
 
 ## Project Structure
 
