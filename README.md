@@ -35,6 +35,16 @@ project/
 └── requirements.txt               # Python dependencies
 ```
 
+## Note on Files
+
+You will find 2 sets of files called `eval_<pipeline>.py` and `test_<pipeline>.py`. Use the `eval` script to run the pipeline on the full dataset and get metrics, and use the `test` script to run the pipeline on specific images and get a sample outpue. The eval and test scripts can be done with the following pipelines:
+
+- Base SegFormer
+- Superpixels + MobileSAM + SegFormer
+- MobileSam + SegFormer
+- FastSAM + SegFormer
+- EfficientSAM + SegFormer
+
 ## How to Set Up
 
 ### Step 1 — Create a virtual environment & install dependencies
