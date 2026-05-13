@@ -366,3 +366,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
     sys.argv = [sys.argv[0]]  # Prevent ultralytics from intercepting our CLI args
     evaluate(args)
+    

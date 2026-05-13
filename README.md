@@ -4,8 +4,11 @@
 
 This project implements a food image semantic segmentation pipeline for the **FoodSeg103** dataset by combining:
 
-- **EfficientSAM3** — lightweight distilled SAM3 models (replaces FastSAM for mask generation, and BLIP/CLIP for open-vocabulary labeling)
-- **Semantic-Fast-SAM (SFS)** — the two-stage pipeline architecture (mask generation → semantic labeling with fusion)
+- **SegFormer** — SegFormer is used as the base label generation
+- **Superpixels** — GPU accelerated SLIC used to generated superpixels in milliseconds. Superpixels are used to greatly reduce the number of prompt points to SAM models, lowering inference latency and computational cost
+- **SAM Models** - SAM models like FastSAM and MobileSAM can be used to do everything segmentation, which partitions an image into masks which can precisely cover objects or patterns in the image.
+
+SegFormer is good at label generation, but can struggle to create precise masks, and SAM cannot generate labels, but can create high quality masks. Our idea was to merge their strengths.
 
 Visualization of pipeline:
 ![Pipeline Image](flow.png)
@@ -17,13 +20,13 @@ project/
 ├── configs/                       # Dataset config: 104 class name maps      
 ├── models/                        # Mask generation models (SAM)
 ├── utils/
-│   ├── __init__.py
 │   └── data_loader.py             # FoodSeg103Dataset + visualisation helpers
-├── pipeline_xx.py                    # Main orchestrator (CLI + Python API)
-├── evaluate_xx.py                    # Full dataset evaluation (mIoU, FPS)
+├── pipeline_<type>.py                    # Main orchestrator (CLI + Python API)
+├── evaluate_<type>.py                    # Full dataset evaluation (mIoU, FPS)
+├── test_<type>.py                        # Test a specific method on an image
 ├── train_segformer.py             # SegFormer-B0 training script
 ├── download_dataset.py            # Downloads FoodSeg103 from HuggingFace
-├── setup_repos.py                 # Clones EfficientSAM3 & Semantic-Fast-SAM repos
+├── setup_repos.py                 # Clones EfficientSAM3 to use that model
 └── requirements.txt               # Python dependencies
 ```
 
@@ -31,11 +34,11 @@ project/
 
 You will find 2 sets of files called `eval_<pipeline>.py` and `test_<pipeline>.py`. Use the `eval` script to run the pipeline on the full dataset and get metrics, and use the `test` script to run the pipeline on specific images and get a sample outpue. The eval and test scripts can be done with the following pipelines:
 
-- Base SegFormer
-- Superpixels + MobileSAM + SegFormer
-- MobileSAM + SegFormer
-- FastSAM + SegFormer
-- EfficientSAM + SegFormer
+- Base SegFormer `python eval_segformer.py`
+- Superpixels + MobileSAM + SegFormer (`python eval_hybrid_ensemble.py --sp_prompt --no_yolo`)
+- MobileSAM + SegFormer (`python eval_hybrid_ensemble.py --no_yolo`)
+- FastSAM + SegFormer (`python eval_fastsam.py`)
+- EfficientSAM + SegFormer (`python eval_efficientsam.py`)
 
 ## Results
 
@@ -105,21 +108,21 @@ Other model weights (MobileSAM/FastSAM) will be automatically downloaded wheneve
 
 ## How to Run
 
-### Single image inference
-
-```powershell
-python pipeline.py --image path/to/food_image.jpg --out_dir output --device cuda
-```
-
-Outputs saved to `output/`:
+See which script to run above in list of pipelines.
 
 ### Full dataset evaluation
 
 ```powershell
-python eval_<type>.py --data_dir data/FoodSeg103 --split test --out_dir output/eval --device cuda
+python eval_<type>.py --data_dir data/FoodSeg103 --split test --out_dir output/eval
 ```
 
-Outputs:
-- Per-class IoU and mIoU printed to console
-- `output/eval/evaluation_results.txt` — saved metrics
-- First 20 overlay images saved for visual inspection
+This will output various charts like confusion matrix, per calss accuracy and IoU, and some sample predictions to the output directory.
+
+### Single image inference
+
+```powershell
+python test_<type>.py --image path/to/food_image.jpg --out_dir output
+```
+
+Outputs saved to `output/`:
+
