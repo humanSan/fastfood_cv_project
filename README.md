@@ -1,4 +1,5 @@
-# Semantic-EfficientSAM3 Pipeline — Walkthrough
+# FastFood
+A food image segmentation pipeline built with SegFormer, MobileSAM, and SLIC Superpixels
 
 ## Overview
 
