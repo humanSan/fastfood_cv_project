@@ -1,4 +1,4 @@
-# FastFood
+# FastFood - Food Image Segmentation
 A food image segmentation pipeline built with SegFormer, MobileSAM, and SLIC Superpixels
 
 ## Overview
